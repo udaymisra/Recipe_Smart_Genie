@@ -1,0 +1,7 @@
+{
+  "name": "Leftover Smart Recipe Genie",
+  "description": "Scan your fridge/kitchen ingredients and get instant, tailored recipes matching your regional tastes, special occasions, and dietary needs. Includes fun ways to involve kids in cooking.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
