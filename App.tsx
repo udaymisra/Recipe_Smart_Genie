@@ -105,7 +105,7 @@ const App: React.FC = () => {
                     value={ingredients}
                     onChange={(e) => setIngredients(e.target.value)}
                     placeholder="e.g., leftover rice, 2 tomatoes, paneer, 1 onion..."
-                    className="w-full h-32 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-shadow disabled:bg-gray-100"
+                    className="w-full h-32 p-3 bg-white border border-gray-300 rounded-lg text-black font-bold placeholder:font-normal placeholder:text-gray-500 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-shadow disabled:bg-gray-100"
                     rows={4}
                     disabled={isIdentifying}
                   />
