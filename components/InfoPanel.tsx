@@ -3,70 +3,55 @@ import React from 'react';
 const InfoPanel: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto mt-12 p-6 bg-emerald-50/70 border border-emerald-200 rounded-2xl text-gray-700 backdrop-blur-sm">
-        <h4 className="text-xl font-bold text-emerald-800 mb-2">🚀 Deploying Your App (With Mobile Fix!)</h4>
+        <h4 className="text-xl font-bold text-emerald-800 mb-2">🚀 Final Fix: Making Your App Bulletproof</h4>
         <p className="mb-4 text-gray-600">
-            Great job deploying! The "blank screen on mobile" is a common issue. It happens because some mobile browsers don't support the ultra-modern JavaScript that Vite uses for speed. I've now added a **compatibility plugin** to fix this.
+            I am very sorry the last fix didn't work. I've found the real root of the problem: the app was using a very new feature ("import maps") to load its code that many mobile browsers don't support yet. I've now changed it to a more standard, reliable method. This should fix the blank screen for good!
         </p>
 
         <div className="space-y-6 text-sm md:text-base">
             <ol className="list-decimal list-inside space-y-4">
                 <li>
-                    <strong>Step 1: Go Into Your Project Folder</strong>
+                    <strong>Step 1: Install Updated Dependencies</strong>
                     <p className="ml-5 mt-1 text-gray-600">
-                        This is the most important step! Make sure your terminal is "inside" your project folder before running any commands. From your screenshot, it looks like your folder is named `Smart_Recipe`.
-                    </p>
-                    <p className="ml-5 mt-2 font-mono text-gray-800 bg-gray-200 p-3 rounded-lg">
-                        <span className="font-bold text-emerald-700">$ cd Smart_Recipe</span>
-                        <span className="text-gray-500 italic block mt-1"> (Or whatever you named your project folder)</span>
-                    </p>
-                </li>
-                <li>
-                    <strong>Step 2: Install Dependencies</strong>
-                    <p className="ml-5 mt-1 text-gray-600">
-                        This command downloads all the necessary tools for your project, including the new mobile compatibility fix.
+                        In your terminal (inside the `Smart_Recipe` folder), please run this command again. It will set up the new, more reliable code loading method.
                     </p>
                     <p className="ml-5 mt-2 font-mono text-gray-800 bg-gray-200 p-3 rounded-lg">
                         <span className="font-bold text-emerald-700">$ npm install</span>
                     </p>
                 </li>
                 <li>
-                    <strong>Step 3: Deploy to the Web!</strong>
+                    <strong>Step 2: Re-Deploy to the Web</strong>
                     <p className="ml-5 mt-1 text-gray-600">
-                        Now, run the deploy command. This will build your app and send it to your GitHub Pages site.
+                        Once the installation is complete, run the deploy command one last time. This will send the fully-fixed version of your app to your live URL.
                     </p>
                     <p className="ml-5 mt-2 font-mono text-gray-800 bg-gray-200 p-3 rounded-lg">
                        <span className="font-bold text-emerald-700">$ npm run deploy</span>
                     </p>
                 </li>
-                <li>
-                    <strong>Step 4: Check Your Live Site</strong>
-                     <p className="ml-5 mt-1 text-gray-600">
-                        Go to your live URL again on your mobile phone. <strong className="text-orange-600">Important:</strong> You might need to clear your mobile browser's cache to see the latest update!
-                     </p>
-                     <ul className="ml-9 mt-2 list-disc list-outside space-y-1 text-gray-700">
-                        <li>The URL is the same: <br/><strong className="text-emerald-700">https://udaymisra.github.io/Recipe_Smart_Genie/</strong></li>
-                        <li>This new version should now load perfectly on your phone.</li>
-                     </ul>
-                </li>
             </ol>
         </div>
 
-        <div className="mt-8 p-4 bg-blue-50/80 border border-blue-200 rounded-xl">
-          <h5 className="font-bold text-blue-800 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+        <div className="mt-8 p-4 bg-orange-50/80 border border-orange-200 rounded-xl">
+          <h5 className="font-bold text-orange-800 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.21 3.03-1.742 3.03H4.42c-1.532 0-2.492-1.696-1.742-3.03l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1-8a1 1 0 00-1 1v3a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
             </svg>
-            A Quick Note on Terminal Messages
+            CRITICAL STEP: Clear Your Mobile Browser Cache!
           </h5>
-          <p className="mt-2 text-sm text-blue-700">
-            After running <code className="bg-blue-200 text-blue-800 px-1 rounded">npm install</code>, you saw messages about <strong className="font-semibold">"deprecated"</strong> packages and <strong className="font-semibold">"vulnerabilities"</strong>.
+          <p className="mt-2 text-sm text-orange-700">
+            Your phone has likely saved the old, broken version of the site. You <strong className="font-semibold">must</strong> clear the cache to see the fix.
           </p>
-          <ul className="mt-2 list-disc list-inside text-sm text-blue-700 space-y-1">
-            <li><strong>This is completely normal and your installation was successful!</strong> These are not errors.</li>
-            <li>A <strong className="font-semibold">"deprecated"</strong> warning is just a note that a package is old.</li>
-            <li><strong className="font-semibold">"Vulnerabilities"</strong> are common security advisories.</li>
-            <li>You can safely proceed to the next step: <code className="bg-blue-200 text-blue-800 px-1 rounded">npm run deploy</code>.</li>
+          <ul className="mt-3 list-disc list-inside text-sm text-orange-700 space-y-2">
+            <li>
+                <strong>On Chrome (Android/iOS):</strong> Go to your site. Tap the three dots (menu) &#8594; History &#8594; Clear browsing data. Check "Cached images and files" and tap "Clear data".
+            </li>
+            <li>
+                <strong>On Safari (iOS):</strong> Go to Settings &#8594; Safari &#8594; Advanced &#8594; Website Data. Find your site in the list, swipe left, and tap "Delete". Or, to clear everything, go to Settings &#8594; Safari &#8594; "Clear History and Website Data".
+            </li>
           </ul>
+           <p className="mt-3 text-sm text-orange-700 font-semibold">
+            After clearing the cache, revisit your URL: <br/><strong className="text-emerald-700">https://udaymisra.github.io/Recipe_Smart_Genie/</strong>. It should now load correctly!
+           </p>
         </div>
     </div>
   );
