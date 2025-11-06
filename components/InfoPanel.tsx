@@ -2,57 +2,97 @@ import React from 'react';
 
 const InfoPanel: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto mt-12 p-6 bg-emerald-50/70 border border-emerald-200 rounded-2xl text-gray-700 backdrop-blur-sm">
-        <h4 className="text-xl font-bold text-emerald-800 mb-2">🚀 Final Fix: Making Your App Bulletproof</h4>
-        <p className="mb-4 text-gray-600">
-            I am very sorry the last fix didn't work. I've found the real root of the problem: the app was using a very new feature ("import maps") to load its code that many mobile browsers don't support yet. I've now changed it to a more standard, reliable method. This should fix the blank screen for good!
-        </p>
+    <div className="max-w-4xl mx-auto mt-12 mb-8 p-6 bg-emerald-50/70 border border-emerald-200 rounded-2xl text-gray-700 backdrop-blur-sm">
+      <h4 className="text-xl font-bold text-emerald-800 mb-3">🚀 Your Mobile Deployment Guide</h4>
+      <p className="mb-6 text-gray-600">
+        Your app is already a **Progressive Web App (PWA)**, which is fantastic! Here’s your complete guide to getting it onto users' phones, from a simple home screen install to a full Google Play Store release.
+      </p>
 
-        <div className="space-y-6 text-sm md:text-base">
-            <ol className="list-decimal list-inside space-y-4">
-                <li>
-                    <strong>Step 1: Install Updated Dependencies</strong>
-                    <p className="ml-5 mt-1 text-gray-600">
-                        In your terminal (inside the `Smart_Recipe` folder), please run this command again. It will set up the new, more reliable code loading method.
-                    </p>
-                    <p className="ml-5 mt-2 font-mono text-gray-800 bg-gray-200 p-3 rounded-lg">
-                        <span className="font-bold text-emerald-700">$ npm install</span>
-                    </p>
-                </li>
-                <li>
-                    <strong>Step 2: Re-Deploy to the Web</strong>
-                    <p className="ml-5 mt-1 text-gray-600">
-                        Once the installation is complete, run the deploy command one last time. This will send the fully-fixed version of your app to your live URL.
-                    </p>
-                    <p className="ml-5 mt-2 font-mono text-gray-800 bg-gray-200 p-3 rounded-lg">
-                       <span className="font-bold text-emerald-700">$ npm run deploy</span>
-                    </p>
-                </li>
-            </ol>
+      <div className="space-y-8 text-sm md:text-base">
+        {/* Phase 1: PWA */}
+        <div>
+          <h5 className="font-bold text-lg text-emerald-700 mb-2">Phase 1: PWA Installation (The Easy Way)</h5>
+          <p className="ml-5 mb-3 text-gray-600">
+            This allows anyone to "install" your app on their phone's home screen directly from their browser.
+          </p>
+          <ol className="list-decimal list-inside space-y-2 ml-5">
+            <li>
+              <strong>Deploy Your App:</strong> Make sure you've run <code className="bg-gray-200 p-1 rounded">npm run deploy</code> to publish the latest version.
+            </li>
+            <li>
+              <strong>Open on Mobile:</strong> Visit your app's URL on a mobile phone (Chrome on Android or Safari on iOS).
+            </li>
+            <li>
+              <strong>Install:</strong> The browser will show a prompt or an option in its menu (e.g., Share icon or ⋮ menu) to <strong className="font-semibold">"Install app"</strong> or <strong className="font-semibold">"Add to Home Screen"</strong>.
+            </li>
+            <li>
+              <strong>Launch!</strong> The app icon will appear on the home screen and launch just like a native app.
+            </li>
+          </ol>
         </div>
 
-        <div className="mt-8 p-4 bg-orange-50/80 border border-orange-200 rounded-xl">
-          <h5 className="font-bold text-orange-800 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.21 3.03-1.742 3.03H4.42c-1.532 0-2.492-1.696-1.742-3.03l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1-8a1 1 0 00-1 1v3a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-            </svg>
-            CRITICAL STEP: Clear Your Mobile Browser Cache!
-          </h5>
-          <p className="mt-2 text-sm text-orange-700">
-            Your phone has likely saved the old, broken version of the site. You <strong className="font-semibold">must</strong> clear the cache to see the fix.
+        {/* Phase 2: Play Store */}
+        <div>
+           <h5 className="font-bold text-lg text-orange-800 mb-2">Phase 2: Publish to the Google Play Store (Advanced)</h5>
+           <p className="ml-5 mb-3 text-gray-600">
+            To get your app on the Play Store, we'll use a tool called **Capacitor** to wrap your web code in a native Android package. Follow these terminal commands from your project's root directory.
           </p>
-          <ul className="mt-3 list-disc list-inside text-sm text-orange-700 space-y-2">
-            <li>
-                <strong>On Chrome (Android/iOS):</strong> Go to your site. Tap the three dots (menu) &#8594; History &#8594; Clear browsing data. Check "Cached images and files" and tap "Clear data".
-            </li>
-            <li>
-                <strong>On Safari (iOS):</strong> Go to Settings &#8594; Safari &#8594; Advanced &#8594; Website Data. Find your site in the list, swipe left, and tap "Delete". Or, to clear everything, go to Settings &#8594; Safari &#8594; "Clear History and Website Data".
-            </li>
-          </ul>
-           <p className="mt-3 text-sm text-orange-700 font-semibold">
-            After clearing the cache, revisit your URL: <br/><strong className="text-emerald-700">https://udaymisra.github.io/Recipe_Smart_Genie/</strong>. It should now load correctly!
+          <ol className="list-decimal list-inside space-y-6 ml-5">
+              <li>
+                <strong className="block mb-1">Install Capacitor:</strong>
+                <p className="mb-2">First, add Capacitor's command-line tool and core libraries to your project.</p>
+                <code className="block bg-gray-800 text-white p-2 rounded text-xs">npm install @capacitor/cli @capacitor/core @capacitor/android</code>
+              </li>
+               <li>
+                <strong className="block mb-1">Initialize Capacitor:</strong>
+                 <p className="mb-2">This command creates a configuration file and sets up your project for Capacitor.</p>
+                <code className="block bg-gray-800 text-white p-2 rounded text-xs">npx cap init</code>
+                 <p className="mt-2 text-xs text-gray-500">You'll be asked for an App Name (e.g., Recipe Genie) and a Package ID. The ID is important and must be unique, formatted like <code className="bg-gray-200 p-1 rounded">com.companyname.appname</code>.</p>
+              </li>
+              <li>
+                <strong className="block mb-1">Add the Android Platform:</strong>
+                <p className="mb-2">This creates a native Android project inside your app, which will contain your web code.</p>
+                <code className="block bg-gray-800 text-white p-2 rounded text-xs">npx cap add android</code>
+              </li>
+              <li>
+                <strong className="block mb-1">Build & Sync Your Web App:</strong>
+                <p className="mb-2">First, create a fresh production build of your React app. Then, sync these files into the native Android project.</p>
+                <code className="block bg-gray-800 text-white p-2 rounded text-xs mb-1">npm run build</code>
+                <code className="block bg-gray-800 text-white p-2 rounded text-xs">npx cap sync</code>
+              </li>
+               <li>
+                <strong className="block mb-1">Open in Android Studio:</strong>
+                 <p className="mb-2">Capacitor will now open your new native project in Android Studio (you'll need to have it installed).</p>
+                <code className="block bg-gray-800 text-white p-2 rounded text-xs">npx cap open android</code>
+              </li>
+               <li>
+                <strong className="block mb-1">Build Your App Bundle (.aab):</strong>
+                <p className="mb-2">Inside Android Studio, you need to generate a signed app bundle, which is the file you'll upload to the Play Store.</p>
+                 <ul className="list-disc list-inside space-y-1 pl-4 text-xs">
+                    <li>Go to <code className="bg-gray-200 p-1 rounded">Build &gt; Generate Signed Bundle / APK...</code></li>
+                    <li>Select <strong className="font-semibold">Android App Bundle</strong> and click Next.</li>
+                    <li>Click <strong className="font-semibold">"Create new..."</strong> under the Keystore path to generate a new signing key.</li>
+                    <li className="text-red-600 font-semibold">IMPORTANT: Save this key file and remember its passwords! You CANNOT update your app without it. Back it up securely.</li>
+                    <li>Finish the wizard to generate the <code className="bg-gray-200 p-1 rounded">.aab</code> file. It will typically be located in <code className="bg-gray-200 p-1 rounded">android/app/release/app-release.aab</code>.</li>
+                 </ul>
+              </li>
+              <li>
+                <strong className="block mb-1">Publish on the Google Play Console:</strong>
+                 <p className="mb-2">This is the final step!</p>
+                 <ul className="list-disc list-inside space-y-1 pl-4 text-xs">
+                    <li>Create a <a href="https://play.google.com/console" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Google Play Developer account</a> (this has a one-time $25 fee).</li>
+                    <li>In the console, create a new app and fill out all the store listing details: name, descriptions, privacy policy, etc.</li>
+                    <li>You will need to design an app icon (512x512px) and take screenshots of your app running. You can run it on an Android emulator within Android Studio to get these.</li>
+                    <li>Upload your signed <code className="bg-gray-200 p-1 rounded">.aab</code> file to a new release.</li>
+                    <li>Follow the console's guidance to roll out your app to testing tracks and finally to production!</li>
+                 </ul>
+              </li>
+          </ol>
+           <p className="mt-4 ml-5 text-xs text-gray-500">
+              This process might seem like a lot, but taking it one step at a time is very manageable. For more details, the official <a href="https://capacitorjs.com/docs/android" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Capacitor Android documentation</a> is an excellent resource.
            </p>
         </div>
+      </div>
     </div>
   );
 };
