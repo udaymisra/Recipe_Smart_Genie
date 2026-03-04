@@ -1,12 +1,12 @@
 
 import React, { useState, useCallback } from 'react';
-import { generateRecipe, identifyIngredientsFromImage } from './services/geminiService';
-import type { Recipe } from './types';
-import Header from './components/Header';
-import RecipeCard from './components/RecipeCard';
-import Loader from './components/Loader';
-import InfoPanel from './components/InfoPanel';
-import CameraModal from './components/CameraModal';
+import { generateRecipe, identifyIngredientsFromImage } from './services/geminiService.ts';
+import type { Recipe } from './types.ts';
+import Header from './components/Header.tsx';
+import RecipeCard from './components/RecipeCard.tsx';
+import Loader from './components/Loader.tsx';
+import InfoPanel from './components/InfoPanel.tsx';
+import CameraModal from './components/CameraModal.tsx';
 
 const CUISINE_OPTIONS = ['Any', 'North Indian', 'South Indian', 'Italian', 'Mexican', 'Chinese', 'Thai'];
 const OCCASION_OPTIONS = ['None', 'Diwali', 'Fasting Friday', 'Navratri', 'Birthday', 'Game Night', 'Christmas'];
@@ -19,7 +19,6 @@ const CameraIcon = () => (
     <path d="M15 8a1 1 0 100-2 1 1 0 000 2z" />
   </svg>
 );
-
 
 const App: React.FC = () => {
   const [ingredients, setIngredients] = useState<string>('');
@@ -92,7 +91,7 @@ const App: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setIsCameraOpen(true)}
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:bg-gray-400"
                     aria-label="Scan ingredients with camera"
                   >
                     <CameraIcon />
@@ -111,7 +110,7 @@ const App: React.FC = () => {
                   />
                   {isIdentifying && (
                     <div className="absolute inset-0 bg-white/80 flex flex-col items-center justify-center rounded-lg border border-green-200">
-                      <Loader />
+                      <Loader className="text-green-600" />
                       <span className="mt-2 text-sm font-medium text-gray-600">Identifying ingredients...</span>
                     </div>
                   )}
@@ -137,7 +136,7 @@ const App: React.FC = () => {
                 <span className="block text-md font-medium mb-2 text-gray-700">Dietary Needs</span>
                 <div className="flex flex-wrap gap-3">
                   {DIET_OPTIONS.map(diet => (
-                    <label key={diet} className="flex items-center space-x-2 cursor-pointer p-2 bg-white/80 rounded-lg border border-gray-200 hover:bg-green-50 transition-colors">
+                    <label key={diet} className="flex items-center space-x-2 p-2 bg-white/80 rounded-lg border border-gray-200 transition-colors cursor-pointer hover:bg-green-50">
                       <input 
                         type="checkbox" 
                         checked={dietaryNeeds.includes(diet)}
@@ -157,7 +156,7 @@ const App: React.FC = () => {
                 disabled={isLoading || isIdentifying}
                 className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-300"
               >
-                {isLoading ? <Loader /> : 'Ask the Genie!'}
+                {isLoading ? <Loader className="text-white" /> : 'Ask the Genie!'}
               </button>
             </div>
           </form>
